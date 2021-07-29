@@ -37,6 +37,7 @@ export default {
   methods: {
     clear() {
       this.current = '';
+      this.previous = '';
     },
     sign() {
       if(!this.current == '0') {
@@ -92,9 +93,13 @@ export default {
       this.setPrevious();
     },
     equal() {
+      // this.current = `${this.operator(
+      //     parseFloat(this.current),
+      //     parseFloat(this.previous)
+      // )}`;
       this.current = `${this.operator(
-          parseFloat(this.current),
-          parseFloat(this.previous)
+          parseFloat(this.previous),
+          parseFloat(this.current)
       )}`;
       this.previous = null;
     }
