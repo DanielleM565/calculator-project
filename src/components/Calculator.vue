@@ -65,18 +65,30 @@ export default {
     },
     divide() {
       this.operator = (a, b) => a / b;
+      if(this.previous != null) {
+        this.equal();
+      }
       this.setPrevious();
     },
     times() {
       this.operator = (a, b) => a * b;
+      if(this.previous != null) {
+        this.equal();
+      }
       this.setPrevious();
     },
     minus() {
       this.operator = (a, b) => a - b;
+      if(this.previous != null) {
+        this.equal();
+      }
       this.setPrevious();
     },
     add() {
       this.operator = (a, b) => a + b;
+      if(this.previous != null) {
+        this.equal();
+      }
       this.setPrevious();
     },
     equal() {
@@ -99,6 +111,7 @@ export default {
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(50px, auto);
 }
+
 /*child */
 .btn, .display{
   display: flex;
