@@ -39,10 +39,11 @@ export default {
       this.current = '';
     },
     sign() {
-      this.current = this.current.charAt(0) === '-' ?
-      this.current.slice(1) : `-${this.current}`;
+      if(!this.current == '0') {
+        this.current = this.current.charAt(0) === '-' ?
+        this.current.slice(1) : `-${this.current}`;
+      }
     },
-    //not work fix percent
     percent() {
       this.current = `${parseFloat(this.current) / 100}`;
     },
@@ -89,18 +90,23 @@ export default {
 }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
-div {
-    text-align: center;
-}
+<style>
+/* parent */
 .calculator {
   margin: 0 auto;
   width: 400px;
-  display: grid;
+  display: inline-grid;
   grid-template-columns: repeat(4, 1fr);
   grid-auto-rows: minmax(50px, auto);
 }
+/*child */
+.btn, .display{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2em;
+}
+
 
 .display {
   grid-column: 1/5;
